@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS-Optimized Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-container">
+            <h1>ATS Resume Builder</h1>
+            <p>Optimize your resume to beat the Applicant Tracking System.</p>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="panel-container">
+            <!-- Left Panel: Inputs -->
+            <section class="input-panel">
+                <div class="tabs">
+                    <button class="tab-btn active" id="tabProfile">1. Edit Profile</button>
+                    <button class="tab-btn" id="tabAnalyzer">2. Analyze Job</button>
+                </div>
+
+                <!-- Profile Form -->
+                <div class="card" id="profileSection">
+                    <h2>Your Profile</h2>
+                    <p class="subtitle">Enter your details to generate the resume.</p>
+                    
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="profileName" placeholder="e.g., Jane Doe">
+                        
+                        <label>Email</label>
+                        <input type="email" id="profileEmail" placeholder="e.g., jane@example.com">
+                        
+                        <label>Skills (comma separated)</label>
+                        <textarea id="profileSkills" rows="2" placeholder="e.g., Java, Spring Boot, SQL, AWS"></textarea>
+                        
+                        <label>Work Experience (one per line)</label>
+                        <textarea id="profileExperience" rows="4" placeholder="e.g., Software Engineer at TechCorp (2020-Present): Developed APIs..."></textarea>
+                        
+                        <label>Education (one per line)</label>
+                        <textarea id="profileEducation" rows="2" placeholder="e.g., B.S. in Computer Science, University of Technology (2014-2018)"></textarea>
+                        
+                        <button id="saveProfileBtn" class="primary-btn">Save Profile</button>
+                    </div>
+                </div>
+
+                <!-- Job Analyzer Form -->
+                <div class="card" id="analyzerSection" style="display: none;">
+                    <h2>Job Description</h2>
+                    <p class="subtitle">Paste the job description you want to apply for.</p>
+                    <textarea id="jobDescription" placeholder="e.g., We are looking for a Software Engineer with experience in Java, Spring Boot, and SQL..."></textarea>
+                    
+                    <button id="analyzeBtn" class="primary-btn">Analyze & Match</button>
+                </div>
+
+                <div class="card analysis-card" id="analysisCard" style="display: none;">
+                    <h2>ATS Analysis Results</h2>
+                    <div class="score-container">
+                        <div class="score-circle">
+                            <span id="matchScore">0</span>%
+                        </div>
+                        <p>Match Score</p>
+                    </div>
+                    
+                    <div class="skills-breakdown">
+                        <div class="matched-skills">
+                            <h3>Matched Keywords</h3>
+                            <div id="matchedKeywords" class="chip-container"></div>
+                        </div>
+                        <div class="missing-skills">
+                            <h3>Missing Keywords</h3>
+                            <div id="missingKeywords" class="chip-container"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card apply-card" id="applySection" style="display: none;">
+                    <h2>Auto-Apply <span class="badge">Mock</span></h2>
+                    <div class="input-group">
+                        <input type="url" id="jobUrl" placeholder="Job URL (e.g., https://linkedin.com/jobs/123)">
+                        <input type="email" id="applyEmail" placeholder="Your Email">
+                        <button id="autoApplyBtn" class="secondary-btn">One-Click Apply</button>
+                    </div>
+                    <div id="applyMessage" class="apply-message"></div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Resume Preview -->
+            <section class="preview-panel">
+                <div class="card resume-card">
+                    <div class="resume-header-actions">
+                        <h2>Resume Preview</h2>
+                        <button id="downloadPdfBtn" class="primary-btn outline" onclick="window.print()">Download PDF</button>
+                    </div>
+                    <div class="resume-wrapper">
+                        <!-- ATS Friendly Resume Template -->
+                        <div class="resume-document" id="resumeDocument">
+                            <div class="resume-header">
+                                <h1 id="resName">John Doe</h1>
+                                <p id="resEmail">john.doe@example.com</p>
+                            </div>
+                            
+                            <div class="resume-section">
+                                <h2 class="section-title">SKILLS</h2>
+                                <p id="resSkills" class="resume-text"></p>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2 class="section-title">WORK EXPERIENCE</h2>
+                                <div id="resExperience"></div>
+                            </div>
+
+                            <div class="resume-section">
+                                <h2 class="section-title">EDUCATION</h2>
+                                <div id="resEducation"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

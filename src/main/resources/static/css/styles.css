@@ -1,0 +1,366 @@
+:root {
+    --primary: #4F46E5;
+    --primary-hover: #4338CA;
+    --bg: #F3F4F6;
+    --card-bg: #FFFFFF;
+    --text-main: #111827;
+    --text-muted: #6B7280;
+    --border: #E5E7EB;
+    --success: #10B981;
+    --danger: #EF4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* App Layout */
+.app-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header-container h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header-container p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.app-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.panel-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Cards & UI Elements */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.badge {
+    background-color: var(--primary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+input[type="text"], input[type="url"], input[type="email"] {
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    width: 100%;
+}
+
+label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: var(--text-main);
+}
+
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 0.75rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--border);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    border-bottom-color: var(--primary);
+    color: var(--primary);
+}
+
+.primary-btn, .secondary-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: inherit;
+    display: inline-block;
+    width: 100%;
+}
+
+.primary-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.primary-btn.outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    width: auto;
+}
+
+.primary-btn.outline:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.secondary-btn {
+    background-color: #10B981;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #059669;
+}
+
+/* Analysis Results */
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.score-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(var(--success) var(--score-deg, 0deg), var(--border) 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.score-circle::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: white;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.score-circle span, .score-circle {
+    z-index: 1;
+}
+
+.skills-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.chip {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.chip.matched {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.chip.missing {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+/* Resume Preview styling (ATS Compliant) */
+.resume-card {
+    height: 100%;
+}
+
+.resume-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.resume-wrapper {
+    background: #e5e5e5;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+/* Actual PDF Document styling */
+.resume-document {
+    background: white;
+    width: 210mm; /* A4 width */
+    min-height: 297mm; /* A4 height */
+    margin: 0 auto;
+    padding: 20mm;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* ATS safe fonts */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    line-height: 1.4;
+}
+
+.resume-document .resume-header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+}
+
+.resume-document h1 {
+    font-size: 24pt;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.resume-document .section-title {
+    font-size: 14pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.resume-text {
+    font-size: 11pt;
+    margin-bottom: 10px;
+}
+
+.experience-item, .education-item {
+    margin-bottom: 10px;
+    font-size: 11pt;
+}
+
+.highlight {
+    background-color: #FFFF00; /* Yellow highlight for demo */
+    font-weight: bold;
+}
+
+/* Print CSS */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .resume-document, .resume-document * {
+        visibility: visible;
+    }
+    .resume-document {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .panel-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .resume-document {
+        width: 100%;
+        min-height: auto;
+        padding: 10mm;
+    }
+}
