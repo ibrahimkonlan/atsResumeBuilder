@@ -1,8 +1,14 @@
-C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\AnalysisResponse.java
-C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\controller\ATSController.java
-C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\AnalyzeRequest.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\repository\AppUserRepository.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\AppUser.java
 C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\repository\UserProfileRepository.java
 C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\AutoApplyRequest.java
 C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\ResumeBuilderApplication.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\AuthResponse.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\LoginRequest.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\AnalysisResponse.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\controller\ATSController.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\AnalyzeRequest.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\controller\AuthController.java
+C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\RegisterRequest.java
 C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\service\ATSAnalyzerService.java
 C:\Users\HarunaIbrahimKonlan\.gemini\antigravity\scratch\ats-resume-builder\src\main\java\com\ats\resumebuilder\model\UserProfile.java

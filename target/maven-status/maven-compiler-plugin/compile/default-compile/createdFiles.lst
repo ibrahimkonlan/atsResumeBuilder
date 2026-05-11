@@ -1,8 +1,14 @@
 com\ats\resumebuilder\model\AnalyzeRequest.class
 com\ats\resumebuilder\model\AutoApplyRequest.class
 com\ats\resumebuilder\model\UserProfile.class
+com\ats\resumebuilder\repository\AppUserRepository.class
 com\ats\resumebuilder\ResumeBuilderApplication.class
 com\ats\resumebuilder\repository\UserProfileRepository.class
+com\ats\resumebuilder\model\AuthResponse.class
+com\ats\resumebuilder\model\LoginRequest.class
 com\ats\resumebuilder\controller\ATSController.class
 com\ats\resumebuilder\service\ATSAnalyzerService.class
+com\ats\resumebuilder\controller\AuthController.class
+com\ats\resumebuilder\model\RegisterRequest.class
 com\ats\resumebuilder\model\AnalysisResponse.class
+com\ats\resumebuilder\model\AppUser.class

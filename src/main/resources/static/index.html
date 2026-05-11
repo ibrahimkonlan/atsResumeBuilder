@@ -4,14 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATS-Optimized Resume Builder</title>
+    <meta name="description" content="Build ATS-optimized resumes tailored to specific job descriptions.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        // ── Auth Guard ──────────────────────────────────────────────────────────
+        (function() {
+            const session = JSON.parse(localStorage.getItem('ats_session') || 'null');
+            if (!session || !session.userId) {
+                window.location.href = '/login.html';
+            }
+        })();
+    </script>
+    <style>
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #4F46E5, #06B6D4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .user-info { text-align: right; }
+        .user-name { font-size: 0.85rem; font-weight: 600; color: #F1F5F9; }
+        .user-email { font-size: 0.72rem; color: #94A3B8; }
+        .logout-btn {
+            padding: 0.4rem 0.9rem;
+            background: rgba(239,68,68,0.12);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: #FCA5A5;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+        .logout-btn:hover { background: rgba(239,68,68,0.25); color: #fff; }
+    </style>
 </head>
 <body>
     <header class="app-header">
-        <div class="header-container">
-            <h1>ATS Resume Builder</h1>
-            <p>Optimize your resume to beat the Applicant Tracking System.</p>
+        <div class="header-container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+            <div>
+                <h1>ATS Resume Builder</h1>
+                <p>Optimize your resume to beat the Applicant Tracking System.</p>
+            </div>
+            <div class="user-badge">
+                <div class="user-info">
+                    <div class="user-name" id="headerUserName">Loading...</div>
+                    <div class="user-email" id="headerUserEmail"></div>
+                </div>
+                <div class="user-avatar" id="headerUserAvatar">?</div>
+                <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
+            </div>
         </div>
     </header>
 
@@ -127,5 +183,25 @@
     </main>
 
     <script src="/js/app.js"></script>
+    <script>
+        // ── Populate header from session ──────────────────────────────────────
+        (function() {
+            const session = JSON.parse(localStorage.getItem('ats_session') || 'null');
+            if (session) {
+                document.getElementById('headerUserName').textContent = session.fullName || 'User';
+                document.getElementById('headerUserEmail').textContent = session.email || '';
+                const initials = (session.fullName || 'U').split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                document.getElementById('headerUserAvatar').textContent = initials;
+            }
+        })();
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out?')) {
+                localStorage.removeItem('ats_session');
+                sessionStorage.removeItem('ats_session');
+                window.location.href = '/login.html';
+            }
+        }
+    </script>
 </body>
 </html>
